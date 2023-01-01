@@ -1,0 +1,7 @@
+      TestNG nedir?
+ Junitın gelısmıs versıyonudur.
+ testleri cesitli planlamalarla calıstırabılıyoruz
+ multi thread bırden fazla  browser calıstırıyor
+ data driven testıng destegı(@dataProvider ile)bırden fazla data yı test edebılıyoruz
+ cesitli araclar ile yanı plagınlerle calısma ozellıği var
+ tum test katogerilerini kapsar(unit,işlevsel(functional),uctanuca(end-to-end),entegresyon,vb..
