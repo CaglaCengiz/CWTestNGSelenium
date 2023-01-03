@@ -1,7 +1,88 @@
       TestNG nedir?
  Junitın gelısmıs versıyonudur.
- testleri cesitli planlamalarla calıstırabılıyoruz
+ TestNG Framework, kolay açıklama, gruplama, sıralama ve parametrelendirme, bağımlı test, paralel testler vs.
+ yardımıyla daha güçlü ve esnek test senaryoları sağlayarak eski frameworkün sınırlamalarını ortadan kaldırır.
+
+  testleri cesitli planlamalarla calıstırabılıyoruz
  multi thread bırden fazla  browser calıstırıyor
  data driven testıng destegı(@dataProvider ile)bırden fazla data yı test edebılıyoruz
  cesitli araclar ile yanı plagınlerle calısma ozellıği var
  tum test katogerilerini kapsar(unit,işlevsel(functional),uctanuca(end-to-end),entegresyon,vb..
+
+      TestNg `nın avantajaları
+      Açık kaynaklı bir çerçevedir, dolayısıyla yapılandırması kolaydır.
+      TestNG kullanarak sistematik olarak test senaryoları oluşturabiliriz.
+      Test senaryosu oluşturmayı kolaylaştıran çok sayıda ek açıklama verir.
+      TestNG kullanılarak, testlerin öncelikleri ve uygulama sırası tanımlanabilir.
+      TestNG kullanılarak gruplama mümkündür.
+      HTML raporları oluşturur (Selenium Webdriver test raporlarını tek başına oluşturamaz, SW'nin bunu başarmasına yardımcı olur).
+      Veri parametreleştirmesi TestNG kullanılarak mümkündür.
+      JUnit'in tüm işlevlerine ek olarak, TestNG kendi işlevlerine sahiptir ve bu da onu daha güçlü kılar.
+      1-Daha fazla before after methodlara sahip(notasyonlar)
+     @BeforeSuite
+     @BeforeTest
+     @BeforeClass
+     @BeforeMethod
+     @Test
+     @AfterMethod
+     @AfterClass
+     @AfterTest
+     @AfterSuite
+
+      2-prioritiy
+      dogal sıralamaya uygun calısır (alfabetik ve kucukten buyuge)
+
+      3-DependsOnMethod:baglı method
+
+      4-xml dosya kullanımı
+
+            TestNG Assertions
+      Assertionlar otomasyon kullanmamızın ana nedenlerinden biridir. TestNG de expected result
+      ile actual result’ın eşleşip eşleşmediği doğrulanır.
+
+            Hard Assertions in TestNG
+      JUnit Framework de öğrendiğimiz şeklidir.
+      Bir assert ifadesi başarısız olduğunda test execution’ı durduran assertionlardır ve bu nedenle sonraki assert ifadeleri
+      doğrulanmaz.
+      Bir öğeye sahip olduğumuz, doğrulaması olmadan diğer öğeleri öne sürmenin faydasız olduğu projelerde kullanılır.
+      Bu gibi durumlarda iyi bir örnek, oturum açma işlevidir.
+      Testerlar olarak genelde hard assertion’ı tercih ederiz ki hemen hatanın olduğu adımı tespit edebilelim, ve koda direk
+      müdahale edebilelim. Çünkü eğer test failed olursa test execution durur, geri kalan adımlar çalışmaz.
+      Ayrıca konsolda AssertionError görülür
+
+           Soft Assertions in TestNG
+      Hard assertion’ın tam tersidir. Bir assertion failed olursa test execution durmaz, sonraki adımlar çalışmaya devam
+      eder, o anda AssertionError görülmez.
+      Sonrasında konsolda görünür.
+      Ayrıca Soft assert default olarak TestNG'yi içermez. Bunun için org.testng.asserts.Softassert paketini eklemek
+      gerekir.
+      Belirli doğrulamaların başarısızlığını umursamadığımızda ve test yürütmesinin devam etmesini istediğimizde ve ayrıca
+      istisna hatalarını görmek istediğimizde kullanılır.
+
+      Step 1: SoftAssert softAssert = new SoftAssert(); → Obje oluşturma
+      Step 2: softAssert.methodName(); → Hard Assert’deki methodlar
+      Step 3: softAssert.assertAll(); → Failed olanları raporlama
+
+      Soft Assert & Hard Assert
+      - İkisi de TestNG’den gelir.
+      - Kullanım amaçları farklıdır.
+      - Yöntemleri aynıdır, Assert’lerin iki ana kategorisidir.
+      - Assert → Assertion fail olursa diğer stepler için execution durur ve test failed olarak işaretlenir.
+      - Verification → Assertion fail olursa diğer stepler için execution durmaz devam eder.
+      - Testin sonunda, sonuçları görüntülemek için assertAll() yönteminin çağrılması gerekir.
+
+                          XML Files
+
+      XML (Extensible Markup Language), hem insanlar hem de bilgisayar sistemleri tarafından kolayca okunabilen belgeler
+      oluşturmak için kullanılan bir işaretleme dilidir. W3C tarafından tanımlanan bir standarttır.
+      XML, internet üzerinden veri alışverişi yapan platformlar ve sistemler arasındaki veri alışverişini standart hale getirmek
+      için geliştirilmiş bir biçimlendirme dilidir.
+      TestNG.xml dosyasının başlıca avantajları şunlardır:
+      • Test yöntemlerinin paralel yürütülmesini sağlar.
+      • Bir test yönteminin başka bir test yöntemine bağımlılığına izin verir.
+      • Test yöntemlerimize öncelik vermemize yardımcı olur.
+      • Test yöntemlerinin test grupları halinde gruplandırılmasını sağlar.
+      • @Parameters annotation kullanarak test senaryolarının parametreleştirilmesini destekler.
+      • @DataProvider annotation kullanarak veriye dayalı testlerde yardımcı olur.
+      • Beklenen sonuçların gerçek sonuçlarla doğrulanmasına yardımcı olan farklı türde iddialara sahiptir.
+      • Test özetimizi daha iyi ve net bir şekilde anlamak için farklı HTML raporları, kapsam raporları vb. vardır.
